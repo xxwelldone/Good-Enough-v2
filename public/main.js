@@ -1,17 +1,6 @@
-"use strict";
-const searchSubmitBtn = document.querySelector(".search__submit");
-const input = document.querySelector(".search__input");
-const navbarSearchBtn = document.querySelector(".navbar__search-button");
-let clickable = true;
-
-navbarSearchBtn.addEventListener("click", (event) => {
-  if (clickable) {
-    input.classList.replace("input--deactive", "input--active");
-    searchSubmitBtn.classList.replace("submit--deactive", "submit--active");
-    clickable = false;
-  } else {
-    input.classList.replace("input--active", "input--deactive");
-    searchSubmitBtn.classList.replace("submit--active", "submit--deactive");
-    clickable = true;
-  }
-});
+import { ApiClient } from "./Services/apiClient.js";
+import mobileNavbarToggle from "./Services/hiddenBtn.js";
+import { addMoviesHomescreen } from "./Services/homeMovies.js";
+mobileNavbarToggle();
+const result = await ApiClient.getData("https://api.themoviedb.org/3/trending/movie/day?language=en-US");
+addMoviesHomescreen(result);
