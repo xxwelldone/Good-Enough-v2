@@ -1,18 +1,14 @@
 export class ApiClient {
-    constructor() {
-        this._treadingMovies = "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
-    }
-    get treadingMovies() {
-        return this.treadingMovies;
-    }
-    async fetchData(client) {
-        try {
-            const response = await fetch(client);
-            const movies = await response.json();
-            return movies;
-        }
-        catch (error) {
-            throw error;
-        }
+    static async getData(url) {
+        const options = {
+            method: "GET",
+            headers: {
+                accept: "application/json",
+                Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTE1ZDY1YjQ0NzJhOWIyZDMxZmE5ZTJlYWExZmE5NyIsIm5iZiI6MTcyODQwMDYxMy42MTg2NDIsInN1YiI6IjY2OTQyMTA4NzNmZjZkNmVkZGY0ODExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xx9jdRogeGMC2LjPhTlijNjcFdyayTBIzOPdCJClmh8",
+            },
+        };
+        const response = await fetch(url, options);
+        const data = await response.json();
+        return data;
     }
 }

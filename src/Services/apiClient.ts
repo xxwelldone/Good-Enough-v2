@@ -1,19 +1,18 @@
+import { ApiResponse } from "../models/apiResponse";
 import { Movie } from "../models/movie";
 
 export class ApiClient {
-  private _treadingMovies: string =
-    "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
-
-  public get treadingMovies(): string {
-    return this.treadingMovies;
-  }
-  public async fetchData(client: string): Promise<Movie[]> {
-    try {
-      const response = await fetch(client);
-      const movies: Movie[] = await response.json();
-      return movies;
-    } catch (error) {
-      throw error;
-    }
+  static async getData(url: string): Promise<ApiResponse> {
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTE1ZDY1YjQ0NzJhOWIyZDMxZmE5ZTJlYWExZmE5NyIsIm5iZiI6MTcyODQwMDYxMy42MTg2NDIsInN1YiI6IjY2OTQyMTA4NzNmZjZkNmVkZGY0ODExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xx9jdRogeGMC2LjPhTlijNjcFdyayTBIzOPdCJClmh8",
+      },
+    };
+    const response = await fetch(url, options);
+    const data: ApiResponse = await response.json();
+    return data;
   }
 }
