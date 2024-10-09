@@ -32,7 +32,7 @@ export function addMoviesHomescreen(result: ApiResponse) {
 
     const filmLikeIcon = document.createElement("img");
     filmLikeIcon.setAttribute("class", "film__like-icon");
-    filmLikeIcon.setAttribute("src", "/public/imgs/like.svg");
+    filmLikeIcon.setAttribute("src", "./imgs/like.svg");
     filmLikeIcon.setAttribute("alt", "Like icon");
 
     filmDetails.append(filmTitle, filmRating, filmLikeIcon);
