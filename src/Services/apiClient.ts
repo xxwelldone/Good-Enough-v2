@@ -1,4 +1,4 @@
-import { ApiResponse } from "../models/apiResponse";
+import { ApiResponse } from "../Models/apiResponse";
 
 export class ApiClient {
   static async getData(url: string): Promise<ApiResponse> {

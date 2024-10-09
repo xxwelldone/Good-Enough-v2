@@ -1,6 +1,5 @@
-import { ApiResponse } from "../models/apiResponse";
-import calcPercent from "../utils/calcPercent.js";
-
+import { ApiResponse } from "../Models/apiResponse";
+import calcPercent from "../Utils/calcPercent.js";
 export function addMoviesHomescreen(result: ApiResponse) {
   console.log("entrou");
 

@@ -1,6 +1,6 @@
-import { ApiResponse } from "../models/apiResponse.js";
+import { ApiResponse } from "../Models/apiResponse.js";
+import calcPercent from "../Utils/calcPercent.js";
 import { ApiClient } from "./apiClient.js";
-import calcPercent from "../utils/calcPercent.js";
 
 const searchInput = document.querySelector(".search__input");
 const searchSubmit = document.querySelector(".search__submit");
