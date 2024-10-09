@@ -1,9 +1,13 @@
 import { ApiClient } from "./Services/apiClient.js";
-import mobileNavbarToggle from "./Services/hiddenBtn.js";
+import { mobileNavbarToggle, setAsActive } from "./Services/hiddenBtn.js";
+
 import { addMoviesHomescreen } from "./Services/homeMovies.js";
+import { search } from "./Services/searchResult.js";
 
 mobileNavbarToggle();
-const result = await ApiClient.getData(
+setAsActive();
+const top4 = await ApiClient.getData(
   "https://api.themoviedb.org/3/trending/movie/day?language=en-US"
 );
-addMoviesHomescreen(result);
+addMoviesHomescreen(top4);
+search();

@@ -1,3 +1,4 @@
+import calcPercent from "../utils/calcPercent.js";
 export function addMoviesHomescreen(result) {
     console.log("entrou");
     for (let i = 0; i < 4; i++) {
@@ -23,8 +24,4 @@ export function addMoviesHomescreen(result) {
         filmContent.append(filmImg, filmDetails);
         filmArticle === null || filmArticle === void 0 ? void 0 : filmArticle.append(filmContent);
     }
-}
-function calcPercent(voteAverage) {
-    const result = (voteAverage / 10) * 100;
-    return Math.floor(result);
 }

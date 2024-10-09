@@ -1,4 +1,5 @@
 import { ApiResponse } from "../models/apiResponse";
+import calcPercent from "../utils/calcPercent.js";
 
 export function addMoviesHomescreen(result: ApiResponse) {
   console.log("entrou");
@@ -38,8 +39,4 @@ export function addMoviesHomescreen(result: ApiResponse) {
     filmContent.append(filmImg, filmDetails);
     filmArticle?.append(filmContent);
   }
-}
-function calcPercent(voteAverage: number) {
-  const result = (voteAverage / 10) * 100;
-  return Math.floor(result);
 }
